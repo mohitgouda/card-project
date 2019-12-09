@@ -12,8 +12,6 @@ import {
 })
 export class AppComponent implements OnInit {
 
-	reveal: object;
-	show: boolean = false;
 	state: boolean = false;
 	element: any;
 	cardElement: any;
@@ -28,10 +26,8 @@ export class AppComponent implements OnInit {
 	onclick(event) {
 		this.element = event.target;
 		let more = this.element.classList.contains('more');
-		this.reveal = event.target.querySelector('.card-reveal');
 		this.cardElement = this.element.parentNode.parentNode.parentNode;
-		this.renderer.addClass(this.element.parentNode.parentNode.parentNode, "selected");
-
+		this.renderer.addClass(this.cardElement, "selected");
 		let close = this.element.classList.contains('close');
 		if (more) {
 			this.showReveal();
